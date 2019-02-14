@@ -1,0 +1,34 @@
+# Binance exchange trade producer
+
+This application fetches all trade data for all available crypto symbols from Binance.
+
+# Installation
+
+- Make sure you have python 3.5 or newer.
+- Create virtual environment and install required packages:
+``` $ virtualenv venv```
+``` $ . venv/bin/activate```
+``` $ pip install websockets```
+``` $ pip install requests```
+- Run producer:
+``` $ python3.7 main.py```
+
+# Output example
+```
+{'exchange': 'BINANCE', 'event': 'TRADE', 'symbol': 'XRP_BTC', 'price': '0.00008401', 'quantity': '14.00000000', 'taker_side': 'BUY', 'timestamp': 1550179050.485}
+{'exchange': 'BINANCE', 'event': 'TRADE', 'symbol': 'WTC_ETH', 'price': '0.00807100', 'quantity': '1.49000000', 'taker_side': 'SELL', 'timestamp': 1550179050.785}
+{'exchange': 'BINANCE', 'event': 'TRADE', 'symbol': 'STRAT_BTC', 'price': '0.00024280', 'quantity': '19.47000000', 'taker_side': 'BUY', 'timestamp': 1550179050.14}
+{'exchange': 'BINANCE', 'event': 'TRADE', 'symbol': 'BNB_PAX', 'price': '8.66580000', 'quantity': '111.23000000', 'taker_side': 'SELL', 'timestamp': 1550179051.311}
+{'exchange': 'BINANCE', 'event': 'TRADE', 'symbol': 'NAS_ETH', 'price': '0.00442700', 'quantity': '6.51000000', 'taker_side': 'SELL', 'timestamp': 1550179051.353}
+{'exchange': 'BINANCE', 'event': 'TRADE', 'symbol': 'XEM_BTC', 'price': '0.00001186', 'quantity': '540.00000000', 'taker_side': 'SELL', 'timestamp': 1550179050.796}
+{'exchange': 'BINANCE', 'event': 'TRADE', 'symbol': 'ETH_USDT', 'price': '120.83000000', 'quantity': '0.09544000', 'taker_side': 'BUY', 'timestamp': 1550179051.815}
+{'exchange': 'BINANCE', 'event': 'TRADE', 'symbol': 'MTL_BTC', 'price': '0.00008290', 'quantity': '33.93000000', 'taker_side': 'BUY', 'timestamp': 1550179051.84}
+{'exchange': 'BINANCE', 'event': 'TRADE', 'symbol': 'TRX_BTC', 'price': '0.00000650', 'quantity': '940.00000000', 'taker_side': 'BUY', 'timestamp': 1550179052.36}
+```
+
+## Todo
+- Documentation
+- Command line arguments
+- Debug mode (logging)
+- Partial symbol support (only ETH_BTC and ETH_USDT for example)
+- Docker support
