@@ -3,10 +3,11 @@ import requests
 import json
 import re
 
-from exchanges.binance import Exchange
+from exchanges.exchange_base import Exchange
 from producers.base_producer import WebsocketProducer
 from parsers.base_parser import Parser
 from consumers.base_consumer import Consumer
+from pprint import pprint
 
 # Todo(Fudo):
 # - Error handling
@@ -22,8 +23,8 @@ class BinanceParser(Parser):
                 'exchange'   : 'BINANCE',
                 'event'      : 'TRADE',
                 'symbol'     : symbol,
-                'price'     ; : msg['p'],
-                'quantity'   : msg['q'],
+                'price'      : float(msg['p']),
+                'quantity'   : float(msg['q']),
                 'taker_side' : 'BUY' if msg['m'] else 'SELL',
                 'timestamp'  : float(msg['E']) / 1000.0
                }
@@ -36,7 +37,7 @@ class BinanceConsumer(Consumer):
 
     async def consume(self, msg):
         #  await self.db.store(msg)
-        print(msg)
+        pprint(msg)
         await asyncio.sleep(0)
 
 
