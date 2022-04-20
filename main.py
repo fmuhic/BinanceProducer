@@ -59,7 +59,7 @@ class BinanceMetadata():
             symbol_name = s['baseAsset'] + '_' + re.sub(s['baseAsset'], '', s['symbol'])
             symbol_id = s['symbol'].lower()
             symbols.append([symbol_id, symbol_name])
-        return symbols
+        return symbols[:len(symbols) // 2]
 
 
 if __name__ == '__main__':

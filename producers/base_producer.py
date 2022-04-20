@@ -6,8 +6,8 @@ class WebsocketProducer:
         self.ws_info = ws_info
 
     async def fetch(self, ws_info, raw_msgs):
-        while True:
-            async with websockets.connect(ws_info['endpoint']) as ws:
+        async with websockets.connect(ws_info['endpoint']) as ws:
+            while True:
                 resp = await ws.recv()
                 raw_msgs.append([resp, ws_info['symbol']])
 
